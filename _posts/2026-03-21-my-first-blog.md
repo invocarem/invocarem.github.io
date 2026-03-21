@@ -1,3 +1,10 @@
+---
+layout: post
+title: "My First Blog Post"
+date: 2026-03-21 12:00:00 -0000
+categories: welcome
+---
+
 # Start a new tmux session
 tmux new -s mysession
 
