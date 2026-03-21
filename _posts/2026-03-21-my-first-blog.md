@@ -5,6 +5,10 @@ date: 2026-03-21 12:00:00 -0000
 categories: welcome
 ---
 
+
+# use tmux
+
+```bash
 # Start a new tmux session
 tmux new -s mysession
 
@@ -15,3 +19,4 @@ tmux new -s mysession
 
 # Later, reattach:
 tmux attach -t mysession
+```
