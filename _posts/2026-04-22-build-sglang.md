@@ -34,6 +34,14 @@ and another one:
  rustc --version
 ```
 
+fix another error:
+```
+ sudo apt-get install -y protobuf-compiler
+```
+use the following command to check sglang
+``` 
+  uv pip list | grep sglang
+``` 
 4 install system dependences
 ```
 sudo apt-get install -y libnuma-dev libibverbs-dev
@@ -51,4 +59,31 @@ I make update into ~/.bashrc.
 6 build wheel (spark)
 ```
 TORCH_CUDA_ARCH_LIST="12.1a" MAX_JOBS=4 CMAKE_BUILD_PARALLEL_LEVEL=1  python -m build --wheel --no-isolation
+```
+
+ sudo apt-get install -y protobuf-compiler
+
+ 7 install wheel
+ ```
+ uv pip install --no-deps dist/sgl_kernel*.whl
+ ```
+
+``` 
+  uv pip install triton==3.6.0
+
+ python -c "
+import torch
+print('PyTorch version:', torch.__version__)
+print('CUDA archs:', torch.cuda.get_arch_list())
+print('CUDA version:', torch.version.cuda)
+"
+PyTorch version: 2.13.0a0+gitdff4497
+CUDA archs: ['sm_121']
+CUDA version: 13.0
+```
+### cmake need to include pytorch
+
+```
+export CMAKE_PREFIX_PATH=$(python -c "import torch; print(torch.utils.cmake_prefix_path)")
+
 ```
